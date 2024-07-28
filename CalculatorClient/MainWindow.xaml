@@ -1,0 +1,112 @@
+﻿<Window x:Class="SpecificLayout.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SpecificLayout"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" MinHeight="450" MinWidth="600" >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="350"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Name="LeftPanel" Background="LightGray" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="1*" MinHeight="120"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid Height="50" Name="MenuBarGrid" DockPanel.Dock="Top" VerticalAlignment="Top" Background="Blue">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Width="50" Content="---" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox IsReadOnly="True" Background="LightBlue" Text="Standard" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Column="1"/>
+            </Grid>
+            <Grid Background="Bisque" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBox Name="ExpressionText" IsReadOnly="True" Background="Bisque" Padding="1,1,1,1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Text="" FontFamily="Verdana" FontWeight="Bold" Grid.Row="0"/>
+                <TextBox Name="ResultText" IsReadOnly="True" Background="Bisque" Padding="5, 5, 5, 5" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Text="0" FontSize="65" FontFamily="Verdana" FontWeight="Bold" Grid.Row="1"/>
+            </Grid>
+            <Grid Name="ButtonSection" Background="Cyan" Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Margin="2, 2, 2, 2" Content="7" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="0" Grid.Column="0" Click="Number_Click"/>
+                <Button Margin="2, 2, 2, 2" Content="8" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="0" Grid.Column="1" Click="Number_Click"/>
+                <Button Margin="2, 2, 2, 2" Content="9" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="0" Grid.Column="2" Click="Number_Click"/>
+                <Button Name="PlusButton" Margin="2, 2, 2, 2" Content="+" FontSize="20" FontFamily="Verdana" FontWeight="Bold" Grid.Row="0" Grid.Column="3" Click="Operation_Click"/>
+
+                <Button Margin="2, 2, 2, 2" Content="4" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="1" Grid.Column="0" Click="Number_Click"/>
+                <Button Margin="2, 2, 2, 2" Content="5" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="1" Grid.Column="1" Click="Number_Click"/>
+                <Button Margin="2, 2, 2, 2" Content="6" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="1" Grid.Column="2" Click="Number_Click"/>
+                <Button Name="MinusButton" Margin="2, 2, 2, 2" Content="-" FontSize="20" FontFamily="Verdana" FontWeight="Bold" Grid.Row="1" Grid.Column="3" Click="Operation_Click"/>
+
+                <Button Margin="2, 2, 2, 2" Content="1" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="2" Grid.Column="0" Click="Number_Click"/>
+                <Button Margin="2, 2, 2, 2" Content="2" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="2" Grid.Column="1" Click="Number_Click"/>
+                <Button Margin="2, 2, 2, 2" Content="3" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="2" Grid.Column="2" Click="Number_Click"/>
+                <Button Name="MultiplyButton" Margin="2, 2, 2, 2" Content="*" FontSize="20" FontFamily="Verdana" FontWeight="Bold" Grid.Row="2" Grid.Column="3" Click="Operation_Click"/>
+
+                <Button Margin="2, 2, 2, 2" Content="0" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="3" Grid.Column="0" Click="Number_Click"/>
+                <Button Margin="2, 2, 2, 2" Content="." FontSize="25" FontFamily="Verdana" FontWeight="Bold" Grid.Row="3" Grid.Column="1" Click="Number_Click"/>
+                <Button Name="EqualButton" Margin="2, 2, 2, 2" Content="=" FontSize="20" FontFamily="Verdana" FontWeight="Bold" Grid.Row="3" Grid.Column="2" Click="Equal_Click"/>
+                <Button Name="DivideButton" Margin="2, 2, 2, 2" Content="/" FontSize="20" FontFamily="Verdana" FontWeight="Bold" Grid.Row="3" Grid.Column="3" Click="Operation_Click"/>
+
+                <Button Margin="2, 2, 2, 2" Content="CE" FontSize="20" FontFamily="Verdana" FontWeight="Bold" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Click="Clear_Click"/>
+            </Grid>
+        </Grid>
+
+        <GridSplitter Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ResizeDirection="Columns" />
+
+        <Grid Name="RightPanel" Background="LightYellow" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <Grid Height="50" Name="MenuBarGrid2" Background="LightBlue">
+                <Button Width="Auto" Content="History" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" FontFamily="Verdana" FontWeight="Bold"/>
+                <Button Width="Auto" Content="Memory" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Margin="70, 0, 0, 0"/>
+            </Grid>
+
+            <ScrollViewer Grid.Row="1">
+                <ListView Name="HistoryList" Background="Bisque" HorizontalContentAlignment="Stretch"/>
+            </ScrollViewer>
+
+            <Grid Grid.Row="2">
+                <Button Name="DeleteButton" Width="30" Padding="3,3,3,3" Content="Del" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                        FontSize="10" FontFamily="Verdana" FontWeight="Bold" Margin="5,5,10,5" Click="DeleteHistory_Click"/>     
+                <Button Name="ImportHistoryButton" Width="50" Padding="3,3,3,3" Content="Import" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                        FontSize="10" FontFamily="Verdana" FontWeight="Bold" Margin="5,5,50,5" Click="ImportHistory_Click"/>
+                <Button Name="ExportHistoryButton" Width="50" Padding="3,3,3,3" Content="Export" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                        FontSize="10" FontFamily="Verdana" FontWeight="Bold" Margin="5,5,110,5" Click="ExportHistory_Click"/>
+                <!--<Button Name="SQLSaveAllButton" Width="60" Padding="3,3,3,3" Content="SQL Save" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                        FontSize="10" FontFamily="Verdana" FontWeight="Bold" Margin="5,5,170,5" Click="SQLSaveAll_Click" />-->
+                <Button Name="ClearDataSourceButton" Width="70" Padding="3,3,3,3" Content="DataClear" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                        FontSize="10" FontFamily="Verdana" FontWeight="Bold" Margin="5,5,240,5" Click="ClearDataSource_Click"/>
+                <Button Name="ReadDataSourceButton" Width="60" Padding="3,3,3,3" Content="DataRead" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                        FontSize="10" FontFamily="Verdana" FontWeight="Bold" Margin="5,5 320,5" Click="ReadDataSource_Click"/>
+
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Window>
