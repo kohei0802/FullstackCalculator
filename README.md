@@ -26,5 +26,6 @@ Additional tools used in development
  - SSMS (SQL Server Management Studio)
 
 The client program starts from CalculatorClient/MainWindow.xaml.cs
+
 The server program starts from WebApplicationServer/Program.cs
 
