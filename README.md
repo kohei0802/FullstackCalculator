@@ -17,7 +17,8 @@ Feature 3 - Class Library
 
 Feature 4 - Encapsulation
 
-
+Feature 5 - Async 
+ - Data Storage done asynchronously
 
 This project is developed with
  - .NET Core and ASP.NET Core
