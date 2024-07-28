@@ -19,10 +19,10 @@ Feature 4 - Encapsulation
 
 
 
-Programmed with
+This project is developed with
  - .NET Core and ASP.NET Core
 
-Tools used in development
+Additional tools used in development
  - SSMS (SQL Server Management Studio)
 
 
